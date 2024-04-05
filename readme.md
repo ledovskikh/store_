@@ -33,6 +33,7 @@ Flask, SQLite, SQLAlchemy
 
 `cd store_
 `
+
 3. Создайте виртуальное окружение и установите необходимые зависимости:
 
 `python3 -m venv venv
