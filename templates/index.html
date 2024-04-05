@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Товары</h1>
+{% if current_user.is_authenticated %}
+<a href="/products" class="btn btn-secondary" style="margin-bottom: 10px">Выставить товар</a>
+{% endif %}
+{% for product in products%}
+<div style="padding-bottom: 10px">
+    <div class="card" style="padding: 5px, height:200px, position:relative">
+        <a href="/{{ product.id }}">
+            <img src="static/img/products_img/{{product.name}}" alt="No image" width="200px" height="200px">
+        </a>
+        <div class="card-body" align="bottom">
+            <div style="position: absolute; top: 0%; left: 25%; width: 50%">
+                <h5 class="card-title">{{product.title}}</h5>
+                <p class="card-text">{{product.content}}</p>
+            </div>
+            <div style="position: absolute; right: 0px; top: 0px">
+                <div class="btn-group-vertical" role="group" aria-label="Basic mixed styles example">
+                    {% if current_user.is_authenticated and current_user != product.user %}
+                    <a href="/product_add_basket/{{ product.id }}" class="btn btn-primary">
+                        Добавить в корзину
+                    </a>
+                    {% endif %}
+                    {% if current_user.is_authenticated and current_user == product.user %}
+                    <a href="/products_edit/{{ product.id }}" class="btn btn-warning">
+                        Изменить
+                    </a>
+                    <a href="/products_delete/{{ product.id }}" class="btn btn-danger">
+                        Удалить
+                    </a>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}

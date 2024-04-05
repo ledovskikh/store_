@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Товары</h1>
+
+{% for item in all_products%}
+{% for product in basket_products%}
+{% if item.id == product.product_id %}
+<div class="card" style="padding: 5px, height:200px, position:relative">
+    <img src="static/img/products_img/{{item.name}}" alt="No image" width="200px" height="200px">
+    <div class="card-body" align="bottom">
+        <div style="position: absolute; top: 0%; left: 25%; width: 50%">
+            <h5 class="card-title">{{item.title}}</h5>
+            <p class="card-text">{{item.content}}</p>
+        </div>
+        <div style="position: absolute; right: 0px; top: 0px">
+            <div class="btn-group-vertical" role="group" aria-label="Basic mixed styles example">
+                <a href="/product_del_basket/{{ item.id }}" class="btn btn-primary">
+                    Убрать из корзины
+                </a>
+                {% if current_user.is_authenticated and current_user == item.user %}
+                <a href="/products_edit/{{ item.id }}" class="btn btn-warning">
+                    Изменить
+                </a>
+                <a href="/products_delete/{{ item.id }}" class="btn btn-danger">
+                    Удалить
+                </a>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endblock %}

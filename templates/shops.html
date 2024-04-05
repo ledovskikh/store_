@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Магазины</h1>
+
+{% for shop in shops%}
+<div class="card" style="padding: 5px, height:200px, position:relative">
+    <img src="static/img/shops_img/defolt.png" alt="No image" width="200px" height="200px">
+    <div class="card-body" align="bottom">
+        <div style="position: absolute; top: 0%; left: 25%; width: 50%">
+            <h5 class="card-title">{{shop.name}}</h5>
+            <p class="card-text">{{shop.about}}</p>
+            <div class="btn-group" role="group" aria-label="Basic example">
+            {% for product in shop.products %}
+            <div style="margin-right: 5px; border: 1px solid #cecece; border-radius: 5px">
+                <h6>{{product.title}}</h6>
+                <a href="/{{ product.id }}">
+                    <img src="static/img/products_img/{{product.name}}" alt="No image" width="50px" height="50px" style="padding: 5px">
+                </a>
+
+
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+        <div style="position: absolute; right: 0px; top: 0px">
+            <div class="btn-group-vertical" role="group" aria-label="Basic mixed styles example">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}
