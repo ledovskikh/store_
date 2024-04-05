@@ -12,4 +12,4 @@ class Basket(SqlAlchemyBase):
     user_id = sqlalchemy.Column(sqlalchemy.Integer,
                                 sqlalchemy.ForeignKey("users.id"))
     product_id = sqlalchemy.Column(sqlalchemy.Integer)
-    user = orm.relation('User')
+    user = orm.relationship('User')

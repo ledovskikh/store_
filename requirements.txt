@@ -1,0 +1,7 @@
+sqlalchemy==2.0.29
+wtforms==3.1.2
+flask==3.0.2
+flask-login==0.6.3
+flask-restful==0.3.10
+sqlalchemy-serializer==1.4.12
+flask-wtf==1.2.1

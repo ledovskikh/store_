@@ -20,6 +20,6 @@ class Product(SqlAlchemyBase,SerializerMixin):
                                 sqlalchemy.ForeignKey("users.id"))
     name = sqlalchemy.Column(sqlalchemy.Text, nullable=False, unique=True)
     mimetype = sqlalchemy.Column(sqlalchemy.Text, nullable=False)
-    user = orm.relation('User')
+    user = orm.relationship('User')
 
 
