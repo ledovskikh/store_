@@ -14,7 +14,7 @@
 - Добавление товаров в корзину
 - Добавление товара (на продажу)
 
-![Image alt](https://github.com/{ledovskikh}/{store_}/raw/{main}/demo.png)
+![Image alt](https://github.com/ledovskikh/store_/raw/main/demo.png)
 
 ## Технологии
 
